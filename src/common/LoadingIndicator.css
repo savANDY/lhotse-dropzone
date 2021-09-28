@@ -1,0 +1,18 @@
+.lhotseSpin {
+    margin-top: 0;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #032b52;
+    position: relative;
+}
+
+.ant-spin-spinning {
+    display: block;
+    text-align: center;
+    height: 100vh;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
