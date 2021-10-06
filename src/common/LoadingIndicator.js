@@ -1,12 +1,11 @@
 import React from 'react';
-import {Spin, Icon} from 'antd';
 import './LoadingIndicator.css'
+import {Spinner} from "reactstrap";
 
 export default function LoadingIndicator() {
-  const antIcon = <Icon type="loading-3-quarters" style={{fontSize: 30}} spin/>;
   return (
       <section className={"lhotseSpin"}>
-        <Spin indicator={antIcon}/>
+        <Spinner size="sm" color="primary"/>
       </section>
   );
 }

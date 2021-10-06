@@ -1,27 +1,19 @@
 import React, {useState} from 'react';
-import './index.css';
 import {
   Route,
   withRouter,
   Switch
 } from 'react-router-dom';
 import Home from './home/Home';
-
-import {Layout, notification} from 'antd';
 import NotFound from "../common/NotFound";
 import AppHeader from "../common/AppHeader";
 import LoadingIndicator from "../common/LoadingIndicator";
-
-const {Content} = Layout;
-
-notification.config({
-  placement: 'topRight',
-  top: 70,
-  duration: 3,
-});
+import {Container} from "reactstrap";
+import './index.css'
+import {AlertLhotse} from "../components/alert";
 
 function Lhotse() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   setTimeout(() => {
     setIsLoading(false)
   }, 2000);
@@ -30,10 +22,10 @@ function Lhotse() {
     return <LoadingIndicator />;
   }
   return (
-      <Layout className="app-container">
+      <Container className="app-container">
         <AppHeader />
-        <Content className="app-content">
-          <div className="container">
+        <Container className="appContent">
+          <AlertLhotse />
             <Switch>
               <Route exact path="/"
                      render={(props) =>
@@ -42,9 +34,8 @@ function Lhotse() {
               </Route>
               <Route component={NotFound}/>
             </Switch>
-          </div>
-        </Content>
-      </Layout>
+        </Container>
+      </Container>
 
   )
 }

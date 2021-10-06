@@ -1,6 +1,5 @@
-import React, {useCallback, useState} from 'react'
+import React, {useState} from 'react'
 import {useDropzone} from 'react-dropzone'
-import { InboxOutlined } from '@ant-design/icons';
 import './index.css';
 
 export default function LhDropzone(props) {
@@ -10,7 +9,7 @@ export default function LhDropzone(props) {
       setInsideText(null);
     }
   }, [props.empty])
-  const onDrop = useCallback((files) => {
+  const onDrop = (files) => {
     files.forEach((file) => {
       const reader = new FileReader()
 
@@ -23,8 +22,6 @@ export default function LhDropzone(props) {
         props.handleUpload(undefined);
       }
       reader.onload = () => {
-
-        // Do whatever you want with the file contents
         const base64 = reader.result
         let fileInfo = {
           name: file.name,
@@ -37,21 +34,18 @@ export default function LhDropzone(props) {
       }
       reader.readAsDataURL(file)
     })
+  }
 
-  }, [])
-  const onDropAccepted = useCallback((acceptedFile) => {
-
-  });
-
-  const {getRootProps, getInputProps} = useDropzone({onDrop, maxFiles:1, onDropAccepted, multiple: false})
+  const {getRootProps, getInputProps} = useDropzone({onDrop, maxFiles: 1})
 
   return (
       <div {...getRootProps()} className={"lh-dropzone"}>
         <p className="ant-upload-drag-icon">
-          <InboxOutlined />
+          {/*<InboxOutlined/>*/}
         </p>
         <input {...getInputProps()} />
-        <p>{insideText || "Drag 'n' drop some file here, or click to select a file"}</p>
+        <p>{insideText
+        || "Drag 'n' drop some file here, or click to select a file"}</p>
       </div>
   )
 }

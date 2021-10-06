@@ -13,6 +13,18 @@
     text-decoration: none;
   }
 
+.appTitle {
+  background: linear-gradient(
+      to right,
+      hsl(190, 100%, 62%),
+      hsl(204, 100%, 90%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 3px #0000004a;
+  padding-left: 10px;
+}
+
   .app-header {
     position: fixed;
     width: 100%;

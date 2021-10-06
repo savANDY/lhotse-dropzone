@@ -1,7 +1,7 @@
 import React from 'react';
 import './NotFound.css';
 import {Link} from 'react-router-dom';
-import {Button} from 'antd';
+import {Button} from "reactstrap";
 
 export default function NotFound() {
   return (
